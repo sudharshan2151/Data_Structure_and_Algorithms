@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+select a.product_name ,sum(unit) as unit from products a inner join orders b on b.product_id=a.product_id  where b.order_date like '2020-02%' group by b.product_id having unit>=100;
