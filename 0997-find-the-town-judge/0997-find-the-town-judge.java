@@ -4,8 +4,7 @@ class Solution {
         Map<Integer,Integer> map = new HashMap<>();
         for(int a[] : trust){
           if(a[0]!=a[1]){
-             
-              ar[a[0]]=-5;
+              ar[a[0]]=-1;
               ar[a[1]]++;
     
           }
