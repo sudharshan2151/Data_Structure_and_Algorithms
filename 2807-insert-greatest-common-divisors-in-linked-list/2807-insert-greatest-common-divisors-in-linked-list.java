@@ -12,7 +12,7 @@ class Solution {
     public ListNode insertGreatestCommonDivisors(ListNode head) {
         ListNode cur = head;
         while(cur!=null&&cur.next!=null){
-            int val =check(cur.val,cur.next.val);
+            int val =gcd(cur.val,cur.next.val);
             ListNode divisor = new ListNode(val);
             ListNode temp = cur.next;
             cur.next=divisor;
@@ -21,16 +21,11 @@ class Solution {
         }
         return head;
     }
-    int check(int a ,int b){
-        int n =Math.min(a,b);
-        int i=1;
-        int result =1;
-        while(i<=n){
-            if(a%i==0&&b%i==0){
-                result=Math.max(result,i);
-            }
-            i++;
+    int gcd(int a ,int b){
+        if(b==0){
+            return a;
         }
-        return result;
+        //System.out.println(a+" "+b);
+      return gcd(b,a%b);
     }
 }
