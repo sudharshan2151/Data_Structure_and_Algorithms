@@ -1,8 +1,11 @@
 class Solution {
     public int[] searchRange(int[] ar, int target) {
-        
+        int[] res = {lowerBound(target,ar),upperBound(target,ar)};
+        return res;
+    }
+    
+    int lowerBound(int target,int[]ar){
         int i=0,j=ar.length-1;
-        int[] ar1 = {-1,-1};
         int min = Integer.MAX_VALUE;
         while(i<=j){
             int mid = (i+j)/2;
@@ -17,10 +20,13 @@ class Solution {
                 j=mid-1;
             }
         }
-        ar1[0]=min==Integer.MAX_VALUE?-1:min;
-        min = Integer.MIN_VALUE;
-        i=0;
-        j=ar.length-1;
+        return min==Integer.MAX_VALUE?-1:min;
+    }
+    
+    int upperBound(int target,int[] ar){
+        int i=0,j=ar.length-1;
+        
+        int min = Integer.MIN_VALUE;
         while(i<=j){
             int mid = (i+j)/2;
             if(ar[mid]==target){
@@ -34,9 +40,6 @@ class Solution {
                 j=mid-1;
             }
         }
-         ar1[1]=min==Integer.MIN_VALUE?-1:min;
-        return ar1;
+        return min==Integer.MIN_VALUE?-1:min;
     }
-    
-    
 }
